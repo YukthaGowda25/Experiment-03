@@ -151,12 +151,65 @@ Transient Analysis:
   In a MOS differential amplifier, the resistor is replaced with a current source to improve gain and performance. A current source provides a high output resistance, which increases the gain of the amplifier. It also ensures a more stable and constant current flow, making the circuit more efficient and less sensitive to variations in power supply or transistor parameters.
    A current source also helps in rejecting common-mode signals more effectively, improving the amplifier's differential performance. It also helps maintain a constant current flow, reducing distortion and improving signal quality.
 
+   ![Screenshot 2025-03-03 225120](https://github.com/user-attachments/assets/7826cc7f-aba2-473a-bd70-a76cec7d37af)
+
   DC Analysis
 
-  ![Screenshot 2025-03-03 225120](https://github.com/user-attachments/assets/7826cc7f-aba2-473a-bd70-a76cec7d37af)
-
   ![Screenshot 2025-03-03 225230](https://github.com/user-attachments/assets/61089776-337a-4f53-a17d-c6aa91f3242b)
+
+  Here, there is no much change in the DC output, since it is only a resistor which is been replaced with the current source. The overall stability is increased keeping the current and voltage across Vp constant.
 
   Transient Analysis
 
   ![Screenshot 2025-03-03 225322](https://github.com/user-attachments/assets/102ccb86-37e7-475d-b415-d840714f4ea8)
+
+Keeping DC offset = 1.2V, Amplitude = 50m and Frequency = 1kHz, after simulation there is 180 degree phase shift with the input. The gain is calculated using the formula  Av = Vout / Vin where Vout = 1.4493 - 1.051 = 0.3983 and Vin = 1.2496 - 1.1503 = 0.0993, after substituting the values in the equation, we get 
+  Av = Vout / Vin
+
+  Av = 0.3983 / 0.0993 = 4.012
+  The dB conversion of the gain is dB = 20 log Av
+                              
+  Therefore, dB = 20 log (4.012) = 12.067dB.
+  This is verified by AC analysis.
+
+  AC Analysis 
+
+  ![Screenshot 2025-03-03 225458](https://github.com/user-attachments/assets/d7d2f31c-f8b6-4741-9e34-2a9ea22ec691)
+
+  ![Screenshot 2025-03-03 225514](https://github.com/user-attachments/assets/e71811c8-03f3-4c74-8d7f-d8880daf7bb3)
+
+  Here, the same sinusoidal signal is supplied to the gate terminals with the small signal ac analysis amplitude 1 and then simulate. Comparing this with the previous circuit which consisted resistor Rss, we can see that there is negligible amount of variation in gain.
+
+# Ciruit 3
+Here, we replace resistor Rss with a N-Channel MOSFET to analyse the circuit.
+  
+  In a MOS differential amplifier, the resistor is replaced with a MOSFET (acting as a current source) to improve performance. A MOSFET provides a high output resistance, which increases gain. It also ensures a stable and constant current, improving biasing and making the circuit less sensitive to power supply variations. Additionally, using a MOSFET saves space in IC design and enhances common-mode rejection, making the amplifier more efficient. This is done to prove that the MOSFET acts as "constant current source".
+
+  ![Screenshot 2025-03-03 224901](https://github.com/user-attachments/assets/3cf5b844-32af-45ec-b207-ef2443438f82)
+
+
+DC Analysis 
+
+Procedure for Performing DC Analysis:
+  1. Assign values for length and width of mosfet to ensure that the required amount of current is flowing in each branch. Considering Length = 180n and Width = 6.89912u, which is optimal for the working of FET.
+ 2. Select the dc output point(DC op pnt) in the Edit Simulation Command and Run the Simulation.
+  The Figure below shows the Values obtained from the DC Analysis :
+
+ ![Screenshot 2025-03-03 224406](https://github.com/user-attachments/assets/74833609-3d94-4eb3-85e6-51979de71266)
+
+ Transient Analysis 
+
+ ![Screenshot 2025-03-03 225322](https://github.com/user-attachments/assets/fab81074-725c-4967-8033-4beb29b1798c)
+
+![Screenshot 2025-03-03 225351](https://github.com/user-attachments/assets/76741f57-6b87-4c94-aa28-dddc8b1a48ee)
+
+AC Analysis 
+
+![Screenshot 2025-03-03 224706](https://github.com/user-attachments/assets/d104a29b-45e9-4827-afec-b3ef79543412)
+
+![Screenshot 2025-03-03 224732](https://github.com/user-attachments/assets/8cd01ab7-c482-4815-8f7d-d574edfe0987)
+
+
+
+
+
