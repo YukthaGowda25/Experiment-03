@@ -1,4 +1,4 @@
-b# Experiment-03
+# Experiment-03
 Question : Design and Analyze the Differential Amplifier for the following specs, Vdd=2.2V, P<=2.2mW, Vicm=1.2V, Vocm=1.25V, Vp=0.4V. Perform DC analysis, Transient Analysis, Frequency Response and extract the parameters.
 
 
