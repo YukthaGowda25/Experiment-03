@@ -2,7 +2,8 @@
 Question : Design and Analyze the Differential Amplifier for the following specs, Vdd=2.2V, P<=2.2mW, Vicm=1.2V, Vocm=1.25V, Vp=0.4V. Perform DC analysis, Transient Analysis, Frequency Response and extract the parameters.
 
 
-# Theory
+# Introduction
+
 Introductory studies of active circuits often focus extensively on standard single-ended amplifier configurations, such as common-source, common-gate, and emitter-follower. While these configurations are valuable for understanding transistor operation, small-signal analysis, and amplifier characteristics, their practical applications are somewhat limited. In modern analog IC design, differential amplifiers are far more prevalent.
 
 Differential amplifiers amplify the difference between two input signals rather than a single input, which offers several advantages:
@@ -16,6 +17,10 @@ A higher component count, which is insignificant in IC design due to the minimal
 The necessity for matched components, which is effectively managed through modern IC fabrication techniques that ensure consistent component characteristics.
 
 ![image](https://github.com/user-attachments/assets/6d16d84f-d1c0-4c50-9ac9-926032796c73)
+
+The MOS differential pair is an amplifier configuration that consists of two identical, perfectly matched MOSFETs with equal source resistances and shared or matching inputs. The output voltage is determined by the difference between the drain voltages (VD) of the two MOSFETs.
+
+Although a differential pair can also be built using BJTs, this experiment focuses on MOSFETs. Since the differential amplifier (diff-amp) serves as the fundamental building block of an operational amplifier (op-amp), understanding its operation is essential for a deeper understanding of op-amps.
 
 In a real-world application, the current-source symbol would be replaced by a circuit that generates a constant current. (For more details, refer to The Basic MOSFET Constant-Current Source.) However, to keep our introductory analysis straightforward, we will use an ideal current source in our simulations instead of a practical constant-current circuit.
 
@@ -210,6 +215,18 @@ Here, we replace resistor Rss with a N-Channel MOSFET to analyse the circuit.
 ![Screenshot 2025-03-03 224706](https://github.com/user-attachments/assets/d104a29b-45e9-4827-afec-b3ef79543412)
 
 ![Screenshot 2025-03-03 224732](https://github.com/user-attachments/assets/8cd01ab7-c482-4815-8f7d-d574edfe0987)
+
+Here, the same sinusoidal signal is supplied to the gate terminals with the small signal ac analysis amplitude 1 and then simulate. Comparing this with the previous circuit which consisted resistor Rss, we can see that there is negligible amount of variation in gain.
+
+# Inference 
+
+Through this experiment, we learned how a differential amplifier works and how to design one in LTSpice. We observed that the differential amplifier rejects common-mode signals while amplifying differential-mode signals, making it an essential building block for operational amplifiers (op-amps).
+
+We explored three different configurations of the differential amplifier: one with a resistance Rss, another with a current source Iss, and one where an NMOS transistor is biased as a current source operating in the saturation region.
+
+Among these, the NMOS current source configuration provided the highest gain of 12.067 dB. However, its frequency response was unstable, with noticeable fluctuations before the midband, possibly due to the NMOS characteristics. The current source configuration had the advantage of providing stable Iss values, closely matching our theoretical calculations, and was less affected by temperature variations. On the other hand, the  Rss configuration was also reliable, but changes in temperature and tolerance errors could lead to variations in resistance, affecting current values and potentially impacting the power budget.
+
+Overall, the differential amplifier is a very effective circuit as it measures the difference between the two drain voltages, helping to eliminate noise. One important consideration is that the differential amplifier requires two perfectly matched N-channel MOSFETs. In LTSpice, this was easy to implement using the 180 nm TSMC .lib technology file.
 
 
 
