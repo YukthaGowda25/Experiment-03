@@ -6,19 +6,22 @@ Question : Design and Analyze the Differential Amplifier for the following specs
 
 Introductory studies of active circuits often focus extensively on standard single-ended amplifier configurations, such as common-source, common-gate, and emitter-follower. While these configurations are valuable for understanding transistor operation, small-signal analysis, and amplifier characteristics, their practical applications are somewhat limited. In modern analog IC design, differential amplifiers are far more prevalent.
 
+The MOS differential pair is an amplifier configuration that consists of two identical, perfectly matched MOSFETs with equal source resistances and shared or matching inputs. The output voltage is determined by the difference between the drain voltages (VD) of the two MOSFETs.
+
 Differential amplifiers amplify the difference between two input signals rather than a single input, which offers several advantages:
 
-They inherently reject noise and interference that appear in both input signals, improving signal integrity.
-Common-mode signals, such as DC offsets present in both inputs, are suppressed, allowing amplification to focus solely on the desired signal. This is particularly beneficial in IC design, as it eliminates the need for bulky DC-blocking capacitors.
-The subtraction performed by a differential pair makes it well-suited for integration into negative-feedback amplifiers, which significantly enhance amplifier performance.
-One might expect these advantages to come with major drawbacks, but IC fabrication largely mitigates any concerns. Two potential issues are:
+1. Differential amplifiers are more efficient than MOSFETs.
+2. Because of the cancelation nature of the amplifier, it rejects unwanted noise, called common-mode noise, from the amplifier circuit.
+3. They inherently reject noise and interference that appear in both input signals, improving signal integrity.
+4. Common-mode signals, such as DC offsets present in both inputs, are suppressed, allowing amplification to focus solely on the desired signal. This is particularly beneficial in IC design, as it eliminates the need for bulky DC-blocking capacitors.
+5. The subtraction performed by a differential pair makes it well-suited for integration into negative-feedback amplifiers, which significantly enhance amplifier performance.
+
+One might expect these advantages to come with major drawbacks, but IC fabrication largely mitigates any concerns. 
 
 A higher component count, which is insignificant in IC design due to the minimal cost of adding extra transistors.
 The necessity for matched components, which is effectively managed through modern IC fabrication techniques that ensure consistent component characteristics.
 
-![image](https://github.com/user-attachments/assets/6d16d84f-d1c0-4c50-9ac9-926032796c73)
-
-The MOS differential pair is an amplifier configuration that consists of two identical, perfectly matched MOSFETs with equal source resistances and shared or matching inputs. The output voltage is determined by the difference between the drain voltages (VD) of the two MOSFETs.
+![Screenshot 2025-03-03 231639](https://github.com/user-attachments/assets/10623345-8b5d-4348-8d64-3147816bd694)
 
 Although a differential pair can also be built using BJTs, this experiment focuses on MOSFETs. Since the differential amplifier (diff-amp) serves as the fundamental building block of an operational amplifier (op-amp), understanding its operation is essential for a deeper understanding of op-amps.
 
@@ -27,6 +30,8 @@ In a real-world application, the current-source symbol would be replaced by a ci
 In an actual IC implementation, the resistors would be replaced by a current mirror acting as an “active load.” However, to better understand the core functionality of the differential pair, we will begin with the resistor-based version.
 
 The differential pair relies on balance for optimal performance. This requires that the MOSFETs and resistors be properly matched—both FETs should have identical channel dimensions, and the resistors should be equal, meaning R1 must be the same as R2. The chosen resistance value for these resistors is referred to as RD (drain resistance).
+
+![image](https://github.com/user-attachments/assets/52430fe8-23a2-47f6-86f5-c0686e49b295)
 
 DC Analysis
 
@@ -67,7 +72,7 @@ Subs Id1 in Rd
 
 Rd = 2.2 - 1.25 / 0.5m = 1.9kohm
 
-Rss = Vd/Iss = 0.4/1m = 400ohm
+By Ohm's Law, Rss = Vd/Iss = 0.4/1m = 400ohm
 
 Qpoint : (Vds, Id)Vgs 
 
