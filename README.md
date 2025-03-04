@@ -86,7 +86,7 @@ Find 3-dB band width.
 ![image](https://github.com/user-attachments/assets/51a058e5-8e16-41ea-a4f4-262eeb3a8bd4)
 
 
-DC Analysis
+**DC Analysis**
 
   DC analysis examines how a circuit behaves with direct current (constant voltage) applied. It helps determine values like current and voltage in a steady-state 
   condition, where everything is stable and not changing over time. It shows the operating point transistors, including voltages at different nodes and the currents flowing through them. This is crucial because proper biasing ensures that the amplifier operates in the correct region (saturation for MOSFETs) and provides the expected gain and performance.
@@ -104,7 +104,7 @@ DC Analysis
  From the above picture, we can see that the current(Idd) obtained is 0.5mA satisfying the values of Vocm and Vp with the design specifiactions.
  In order to cross verify, we calculate the power using the formula, P=V*I where P<=2.2x1m=2.2mW. This satisfies the given condition that the power rating should be 2.2mW or below.
 
-Transient Analysis:
+**Transient Analysis**
 
    Transient analysis shows how the circuit responds to time-varying input signals. It helps us observe the amplifier’s behavior, such as signal amplification, settling time, and transient distortions. This analysis is useful for checking how the circuit handles real-world signals and verifying if it provides the expected output without delays or unwanted oscillations.
 
@@ -134,7 +134,7 @@ Transient Analysis:
   Therefore, dB = 20 log (4.012) = 12.067dB.
   This is verified by AC analysis.
 
-  AC Analysis:
+  **AC Analysis**
 
    AC analysis helps determine the circuit’s frequency response. It shows how the gain, phase shift, and bandwidth change with different input frequencies. This is useful for understanding how well the amplifier performs in real applications, ensuring it provides stable gain and operates effectively within the desired frequency range. This is done to verify the gain calculated during the transient analysis. Here, the same sinusoidal signal is supplied to the gate terminals with the small signal ac analysis amplitude 1 and then simulate.
 
@@ -153,13 +153,13 @@ Transient Analysis:
 
    ![Screenshot 2025-03-03 225120](https://github.com/user-attachments/assets/7826cc7f-aba2-473a-bd70-a76cec7d37af)
 
-  DC Analysis
+  **DC Analysis**
 
   ![Screenshot 2025-03-03 225230](https://github.com/user-attachments/assets/61089776-337a-4f53-a17d-c6aa91f3242b)
 
   Here, there is no much change in the DC output, since it is only a resistor which is been replaced with the current source. The overall stability is increased keeping the current and voltage across Vp constant.
 
-  Transient Analysis
+  **Transient Analysis**
 
   ![Screenshot 2025-03-03 225322](https://github.com/user-attachments/assets/102ccb86-37e7-475d-b415-d840714f4ea8)
 
@@ -172,7 +172,7 @@ Keeping DC offset = 1.2V, Amplitude = 50m and Frequency = 1kHz, after simulation
   Therefore, dB = 20 log (4.012) = 12.067dB.
   This is verified by AC analysis.
 
-  AC Analysis 
+  **AC Analysis** 
 
   ![Screenshot 2025-03-03 225458](https://github.com/user-attachments/assets/d7d2f31c-f8b6-4741-9e34-2a9ea22ec691)
 
@@ -188,7 +188,7 @@ Here, we replace resistor Rss with a N-Channel MOSFET to analyse the circuit.
   ![Screenshot 2025-03-03 224901](https://github.com/user-attachments/assets/3cf5b844-32af-45ec-b207-ef2443438f82)
 
 
-DC Analysis 
+**DC Analysis** 
 
 Procedure for Performing DC Analysis:
   1. Assign values for length and width of mosfet to ensure that the required amount of current is flowing in each branch. Considering Length = 180n and Width = 6.89912u, which is optimal for the working of FET.
@@ -197,13 +197,13 @@ Procedure for Performing DC Analysis:
 
  ![Screenshot 2025-03-03 224406](https://github.com/user-attachments/assets/74833609-3d94-4eb3-85e6-51979de71266)
 
- Transient Analysis 
+ **Transient Analysis** 
 
  ![Screenshot 2025-03-03 225322](https://github.com/user-attachments/assets/fab81074-725c-4967-8033-4beb29b1798c)
 
 ![Screenshot 2025-03-03 225351](https://github.com/user-attachments/assets/76741f57-6b87-4c94-aa28-dddc8b1a48ee)
 
-AC Analysis 
+**AC Analysis** 
 
 ![Screenshot 2025-03-03 224706](https://github.com/user-attachments/assets/d104a29b-45e9-4827-afec-b3ef79543412)
 
