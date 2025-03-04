@@ -73,24 +73,34 @@ Find 3-dB band width.
 
 # Circuit 1
 
+![image](https://github.com/user-attachments/assets/51a058e5-8e16-41ea-a4f4-262eeb3a8bd4)
+
+
 DC Analysis
 
   DC analysis examines how a circuit behaves with direct current (constant voltage) applied. It helps determine values like current and voltage in a steady-state 
-  condition, where everything is stable and not changing over time.
+  condition, where everything is stable and not changing over time. It shows the operating point transistors, including voltages at different nodes and the currents flowing through them. This is crucial because proper biasing ensures that the amplifier operates in the correct region (saturation for MOSFETs) and provides the expected gain and performance.
 
   Procedure for Performing DC Analysis:
-  Select the dc output print(DC op pnt) in the Edit Simulation Command and Run the Simulation.
+  1. Assign values for length and width of mosfet to ensure that the required amount of current is flowing in each branch. Considering Length = 180n and Width = 6.41246u, which is optimal for the working of FET.
+
+![image](https://github.com/user-attachments/assets/3260b840-20b4-4d17-8376-14d9bb67e1d7)
+
+  2. Select the dc output point(DC op pnt) in the Edit Simulation Command and Run the Simulation.
   The Figure below shows the Values obtained from the DC Analysis :
 
   ![Screenshot 2025-02-25 130229](https://github.com/user-attachments/assets/ba9496c1-126e-404e-9abc-e2af3cf64ba7)
 
+ From the above picture, we can see that the current(Idd) obtained is 0.5mA satisfying the values of Vocm and Vp with the design specifiactions.
+ In order to cross verify, we calculate the power using the formula, P=V*I where P<=2.2x1m=2.2mW. This satisfies the given condition that the power rating should be 2.2mW or below.
+
 Transient Analysis:
 
-   Transient analysis shows how a circuit responds over time to changes, like when a signal is applied or turned off. It helps us understand how voltages and currents 
-   change before the circuit stabilizes.
+   Transient analysis shows how the circuit responds to time-varying input signals. It helps us observe the amplifier’s behavior, such as signal amplification, settling time, and transient distortions. This analysis is useful for checking how the circuit handles real-world signals and verifying if it provides the expected output without delays or unwanted oscillations.
 
    Procedure for Performing Transient Analysis:
-   Select the Transient Analysis in the Edit Simulation Command,  Give the stop time as 5ms and Run the Simulation.
+   1. In order to perform transient analysis, we give sine input with 1.2V offset voltage, 50m amplitude and 1kHz frequency to both the gate voltage source and observe the changes.
+   2. Select the Transient Analysis in the Edit Simulation Command,  Give the stop time as 5ms and Run the Simulation. Observe the graph between Vocm (output) and the input gate voltage to analyse the circuit.
 
    ![Screenshot 2025-02-28 074734](https://github.com/user-attachments/assets/8fb2a4f9-fa42-49ab-bc31-e44ac611687a)
 
@@ -114,25 +124,14 @@ Transient Analysis:
 
   ![Screenshot 2025-03-03 222318](https://github.com/user-attachments/assets/f9899166-7be2-4fc7-856d-23b5b85ec0ee)
 
-  
+  # Circuit 2
 
+  DC Analysis
 
+  ![Screenshot 2025-03-03 225120](https://github.com/user-attachments/assets/7826cc7f-aba2-473a-bd70-a76cec7d37af)
 
-   
+  ![Screenshot 2025-03-03 225230](https://github.com/user-attachments/assets/61089776-337a-4f53-a17d-c6aa91f3242b)
 
+  Transient Analysis
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  ![Screenshot 2025-03-03 225322](https://github.com/user-attachments/assets/102ccb86-37e7-475d-b415-d840714f4ea8)
