@@ -24,6 +24,7 @@ In an actual IC implementation, the resistors would be replaced by a current mir
 The differential pair relies on balance for optimal performance. This requires that the MOSFETs and resistors be properly matched—both FETs should have identical channel dimensions, and the resistors should be equal, meaning R1 must be the same as R2. The chosen resistance value for these resistors is referred to as RD (drain resistance).
 
 DC Analysis
+
 Let's analyze the biasing conditions of the circuit when both input terminals are grounded.
 The sum of the two drain currents ID1 and ID2 must equal IBIAS. We also know that the two drain currents are equal because, in this idealized analysis, both halves of the circuit are identical. Thus,
 
@@ -38,6 +39,7 @@ A MOSFET amplifier needs to remain in the saturation portion of its transfer cha
  ![image](https://github.com/user-attachments/assets/c53baa74-f4ea-43b8-a288-a90856871a64)
 
 Differential Gain
+
 If the voltage at the gate of Q1 is higher than the voltage at the gate of Q2, VGS1 must also be higher than VGS2, because both transistors have the same potential at the source terminal. A higher gate-to-source voltage means more drain current, but the sum of the drain currents remains the same—thus, ID1 increases and ID2 decreases, and this causes a corresponding decrease in Vout1 and a corresponding increase in Vout2.
 The formula for theoretical differential gain is:
 
@@ -91,7 +93,7 @@ Find 3-dB band width.
   DC analysis examines how a circuit behaves with direct current (constant voltage) applied. It helps determine values like current and voltage in a steady-state 
   condition, where everything is stable and not changing over time. It shows the operating point transistors, including voltages at different nodes and the currents flowing through them. This is crucial because proper biasing ensures that the amplifier operates in the correct region (saturation for MOSFETs) and provides the expected gain and performance.
 
-  Procedure for Performing DC Analysis:
+  **Procedure for Performing DC Analysis:**
   1. Assign values for length and width of mosfet to ensure that the required amount of current is flowing in each branch. Considering Length = 180n and Width = 6.41246u, which is optimal for the working of FET.
 
 ![image](https://github.com/user-attachments/assets/3260b840-20b4-4d17-8376-14d9bb67e1d7)
@@ -108,7 +110,7 @@ Find 3-dB band width.
 
    Transient analysis shows how the circuit responds to time-varying input signals. It helps us observe the amplifier’s behavior, such as signal amplification, settling time, and transient distortions. This analysis is useful for checking how the circuit handles real-world signals and verifying if it provides the expected output without delays or unwanted oscillations.
 
-   Procedure for Performing Transient Analysis:
+   **Procedure for Performing Transient Analysis:**
    1. In order to perform transient analysis, we give sine input with 1.2V offset voltage, 50m amplitude and 1kHz frequency to both the gate voltage source and observe the changes.
 
    ![Screenshot 2025-02-28 074734](https://github.com/user-attachments/assets/8fb2a4f9-fa42-49ab-bc31-e44ac611687a)
@@ -190,7 +192,7 @@ Here, we replace resistor Rss with a N-Channel MOSFET to analyse the circuit.
 
 **DC Analysis** 
 
-Procedure for Performing DC Analysis:
+**Procedure for Performing DC Analysis:**
   1. Assign values for length and width of mosfet to ensure that the required amount of current is flowing in each branch. Considering Length = 180n and Width = 6.89912u, which is optimal for the working of FET.
  2. Select the dc output point(DC op pnt) in the Edit Simulation Command and Run the Simulation.
   The Figure below shows the Values obtained from the DC Analysis :
