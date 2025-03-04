@@ -1,4 +1,4 @@
-# Experiment-03
+b# Experiment-03
 Question : Design and Analyze the Differential Amplifier for the following specs, Vdd=2.2V, P<=2.2mW, Vicm=1.2V, Vocm=1.25V, Vp=0.4V. Perform DC analysis, Transient Analysis, Frequency Response and extract the parameters.
 
 
@@ -47,15 +47,25 @@ The formula for theoretical differential gain is:
 # Solution
 
 Let P=2.2mW
+
 Iss = P/V = 2.2m/2.2 = 1mA
+
 Rd = Vdd - Vocm / Id1.........(1)
+
 Id1 = Id2 = Iss/2
+
 Therefore,  Id1 = 0.5mA
+
 Subs Id1 in Rd
+
 Rd = 2.2 - 1.25 / 0.5m = 1.9kohm
+
 Rss = Vd/Iss = 0.4/1m = 400ohm
+
 Qpoint : (Vds, Id)Vgs 
+
 Vds = Vd - Vs = 1.25 - 0.4 = 0.85V
+
 Therefore, (0.85V, 0.5m)1.2V 
 
 # Procedure
@@ -100,11 +110,12 @@ Transient Analysis:
 
    Procedure for Performing Transient Analysis:
    1. In order to perform transient analysis, we give sine input with 1.2V offset voltage, 50m amplitude and 1kHz frequency to both the gate voltage source and observe the changes.
-   2. Select the Transient Analysis in the Edit Simulation Command,  Give the stop time as 5ms and Run the Simulation. Observe the graph between Vocm (output) and the input gate voltage to analyse the circuit.
 
    ![Screenshot 2025-02-28 074734](https://github.com/user-attachments/assets/8fb2a4f9-fa42-49ab-bc31-e44ac611687a)
 
    ![Screenshot 2025-02-28 074758](https://github.com/user-attachments/assets/7c5fc05c-a33b-451f-8c38-3d5f828de0c6)
+
+   2. Select the Transient Analysis in the Edit Simulation Command,  Give the stop time as 5ms and Run the Simulation. Observe the graph between Vocm (output) and the input gate voltage to analyse the circuit. 
 
    ![Screenshot 2025-02-28 074510](https://github.com/user-attachments/assets/f2d37632-c160-49f4-9857-f76c65e88b4b)
 
@@ -113,18 +124,32 @@ Transient Analysis:
 
    ![Screenshot 2025-02-25 132729](https://github.com/user-attachments/assets/59570532-4651-4f35-95b4-918f61aa4d57)
 
-  V2 is a sine wave that starts at 1.2V, has a peak-to-peak variation of 50mV, and oscillates at a frequency of 1kHz.
+  Here, the green sine wave indicates the input signal and the blue sine wave indicates the output signal and the amplifier circuit is producing output with 180 degree phase shift with respect to the input.
+  Calculating the gain of the circuit with the equation, Av = Vout / Vin where Vout = 1.4493 - 1.051 = 0.3983 and Vin = 1.2496 - 1.1503 = 0.0993, after substituting the values in the equation, we get 
+  Av = Vout / Vin
+
+  Av = 0.3983 / 0.0993 = 4.012
+  The dB conversion of the gain is dB = 20 log Av
+                              
+  Therefore, dB = 20 log (4.012) = 12.067dB.
+  This is verified by AC analysis.
 
   AC Analysis:
 
-   AC analysis looks at how a circuit behaves when alternating current (AC) signals are applied. It helps measure how the circuit responds to different frequencies, 
-   including changes in voltage, current, gain, and phase shift.
+   AC analysis helps determine the circuit’s frequency response. It shows how the gain, phase shift, and bandwidth change with different input frequencies. This is useful for understanding how well the amplifier performs in real applications, ensuring it provides stable gain and operates effectively within the desired frequency range. This is done to verify the gain calculated during the transient analysis. Here, the same sinusoidal signal is supplied to the gate terminals with the small signal ac analysis amplitude 1 and then simulate.
 
   The Graph below shows the AC Analysis of the Given Design;
 
   ![Screenshot 2025-03-03 222318](https://github.com/user-attachments/assets/f9899166-7be2-4fc7-856d-23b5b85ec0ee)
 
+  From the above picture, theoretical values of gain Av is approximate to the practical value which is around 175 degree, which helps in understanding the working and the output of the circuit.
+
   # Circuit 2
+
+  Here, we replace resistor Rss with a current source with 1mA to analyse the circuit.
+
+  In a MOS differential amplifier, the resistor is replaced with a current source to improve gain and performance. A current source provides a high output resistance, which increases the gain of the amplifier. It also ensures a more stable and constant current flow, making the circuit more efficient and less sensitive to variations in power supply or transistor parameters.
+   A current source also helps in rejecting common-mode signals more effectively, improving the amplifier's differential performance. It also helps maintain a constant current flow, reducing distortion and improving signal quality.
 
   DC Analysis
 
